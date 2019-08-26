@@ -1,0 +1,95 @@
+// 设置边距类的样式
+@mixin boxModel($type, $value, $direction: '') {
+  $style1: null;
+  $style2: null;
+  @while $value>=0 {
+    @if $type == m {
+      $style1: margin
+    } @else if $type == p {
+      $style1: padding
+    }
+    @if $direction == t {
+      $style2: top
+    } @else if $direction == r {
+      $style2: right
+    } @else if $direction == b {
+      $style2: bottom
+    } @else if $direction == l {
+      $style2: left
+    }
+    .#{$type}#{$direction}#{$value} {
+      @if $direction != '' {
+        #{$style1}-#{$style2}: $value * 1px !important;
+      } @else {
+        #{$style1}: $value * 1px !important;
+      }
+    }
+    $value: $value - 5
+  }
+}
+//display
+@mixin display() {
+  @each $type in b i ib f n {
+    .d#{$type} {
+      @if $type == b {
+        display: block;
+      } @else if $type == i {
+        display: inline;
+      } @else if $type == ib {
+        display: inline-block;
+      } @else if $type == f {
+        display: flex;
+      } @else if $type == n {
+        display: none;
+      }
+    }
+  }
+}
+//定位
+@mixin pos() {
+  @each $type in r a f {
+    .pos-#{$type} {
+      @if $type == r {
+        position: relative;
+      } @else if $type == a {
+        position: absolute;
+      } @else if $type == f {
+        position: fixed;
+      }
+    }
+  }
+}
+//设置宽高
+@mixin wh($type, $n) {
+  $style: null;
+  @while $n > 0 {
+    @if $type == w {
+      $style: width
+    } @else if $type == h {
+      $style: height
+    }
+    .#{$type}#{$n} {
+      #{$style}: $n * 1px !important;
+    }
+    @if $n >= 400 {
+      $n: $n - 100
+    }@else if $n >= 200 {
+      $n: $n - 50
+    } @else {
+      $n: $n - 10
+    }
+  }
+}
+// 设置字体大小
+@mixin fs($n) {
+  @while $n>9 {
+    .fs#{$n} {
+      font-size: $n * 1px !important;
+    }
+    @if $n >40 {
+      $n: $n - 10
+    } @else {
+      $n: $n - 1
+    }
+  }
+}

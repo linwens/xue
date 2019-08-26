@@ -1,0 +1,35 @@
+# after_success：执行完测试后，发布到GitHub pages
+
+sudo: false
+language: node_js
+node_js: 10
+addons:
+  chrome: stable
+before_script:
+  - "sudo chown root /opt/google/chrome/chrome-sandbox"
+  - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+script:
+  - npm run test
+after_success:
+  - cat ./tests/unit/coverage/lcov.info | ./node_modules/.bin/coveralls -repotoken $REPO_TOKEN
+  - rm -rf ./tests/unit/coverage
+
+# 发布npm包、生成gh-page
+node_js: "8"
+before_deploy: 
+  - sh build/deploy-ci.sh # 打包npm
+  - sh build/deploy-ghpage.sh  # 生成gh-page
+deploy:
+  provider: npm
+  email: "$NPM_EMAIL"
+  skip_cleanup: true
+  api_key: "$NPM_TOKEN"
+  on:
+    tags: true # git tag 打标签才发包
+    # branch: master # master分支push才发包
+  tag: latest
+
+# 指定分支，只有指定的分支提交时才会运行脚本
+branches:
+  only:
+    # - master  # git中的tag也属于一个分支，如果只能master，tag commit就不会生效

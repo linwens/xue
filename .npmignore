@@ -19,3 +19,11 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+examples/
+packages/
+public/
+vue.config.js
+babel.config.js
+*.map
+*.html
