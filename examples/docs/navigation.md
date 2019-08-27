@@ -10,16 +10,14 @@
 直接通过<!-- {.md} -->设置类名为 `xu-icon-iconName` 来使用即可。例如：
 
 <div class="demo-block">
-  <xu-icon class="xu-icon-taobao fs-24"></xu-icon>
-  <xu-icon class="xu-icon-github fs-24"></xu-icon>
-  <xu-icon class="xu-icon-facebook fs-24"></xu-icon>
+  <xu-navigation class="xu-icon-taobao fs-24"></xu-navigation>
 </div>
 
 :::demo
 ```html
-<xu-icon class="xu-icon-taobao fs-24"></xu-icon>
-<xu-icon class="xu-icon-github fs-24"></xu-icon>
-<xu-icon class="xu-icon-facebook fs-24"></xu-icon>
+<div class="demo-block">
+  <xu-navigation class="xu-icon-taobao fs-24"></xu-navigation>
+</div>
 
 ```
 :::
