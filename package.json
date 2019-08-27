@@ -1,11 +1,10 @@
 {
-  "name": "xue",
+  "name": "xueui",
   "version": "0.1.4",
   "description": "基于 vue-cli3 的 UI 组件库",
   "main": "lib/xue-ui.umd.min.js",
   "keywords": [
-    "xueui",
-    "xue"
+    "xueui"
   ],
   "private": false,
   "license": "MIT",

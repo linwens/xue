@@ -11,5 +11,4 @@ git config user.name "$U_NAME"
 git config user.email "$U_EMAIL"
 git add .
 git commit -m "$COMMIT_M"
-echo "https://$GH_TOKEN@$GH_REF"
 git push --force --quiet "https://$GH_TOKEN@$GH_REF" master:$P_BRANCH
