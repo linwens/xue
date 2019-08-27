@@ -1,10 +1,10 @@
 {
-  "name": "xueui",
+  "name": "xu-ui",
   "version": "0.1.6",
   "description": "基于 vue-cli3 的 UI 组件库",
-  "main": "lib/xue-ui.umd.min.js",
+  "main": "lib/xu-ui.umd.min.js",
   "keywords": [
-    "xueui"
+    "xu-ui"
   ],
   "private": false,
   "license": "MIT",
@@ -18,7 +18,7 @@
     "build:entry": "node build/build-entry.js ",
     "test": "karma start tests/unit/karma.conf.js --single-run",
     "clean": "rimraf lib && rimraf packages/*/lib",
-    "lib": "vue-cli-service build --target lib --name xue-ui --dest lib packages/index.js && npm run build:style",
+    "lib": "vue-cli-service build --target lib --name xu-ui --dest lib packages/index.js && npm run build:style",
     "build:style": "gulp build --gulpfile packages/theme-default/gulpfile.js && cp-cli packages/theme-default/lib lib/theme-default",
     "test:unit": "vue-cli-service test:unit",
     "version": "standard-version",
