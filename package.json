@@ -1,6 +1,6 @@
 {
   "name": "xue",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "基于 vue-cli3 的 UI 组件库",
   "main": "lib/xue-ui.umd.min.js",
   "keywords": [
@@ -22,7 +22,8 @@
     "lib": "vue-cli-service build --target lib --name xue-ui --dest lib packages/index.js && npm run build:style",
     "build:style": "gulp build --gulpfile packages/theme-default/gulpfile.js && cp-cli packages/theme-default/lib lib/theme-default",
     "test:unit": "vue-cli-service test:unit",
-    "release": "standard-version"
+    "version": "standard-version",
+    "release": "sh build/release.sh"
   },
   "dependencies": {
     "core-js": "^2.6.5",
