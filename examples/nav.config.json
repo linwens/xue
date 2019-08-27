@@ -47,7 +47,11 @@
       "desc": "视图组件",
       "path": "/component",
       "items": [
-        
+        {
+          "desc": "navigation",
+          "name": "navigation",
+          "path": "/navigation"
+        }
       ]
     }
   ]

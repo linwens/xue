@@ -2,13 +2,13 @@
   <div class="m-index">
     <div class="m-ban">
       <img src="../assets/img/logo.png">
-      <p class="mt40">Xue-UI</p>
+      <p class="mt40">Xu-UI</p>
       <p class="mt10">一款自己用的前端 UI 组件库</p>
       <div class="df s-jcc mt30">
         <router-link :to="{name: 'giud'}">
           <xu-button class="mr20">开始使用</xu-button>
         </router-link>
-        <a target="_blank" class="btn-github" href="https://github.com/linwens/xueui-demo">
+        <a target="_blank" class="btn-github" href="https://github.com/linwens/xue">
           <xu-button>GitHub</xu-button>
         </a>
       </div>

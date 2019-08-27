@@ -2,10 +2,12 @@
 // This file is auto gererated by build/build-entry.js
 import XuButton from './button'
 import XuIcon from './icon'
-const version = '0.1.0'
+import XuNavigation from './navigation'
+const version = '0.1.61'
 const components = [
   XuButton,
-  XuIcon
+  XuIcon,
+  XuNavigation
 ]
 const install = Vue => {
   components.forEach(Component => {
@@ -20,7 +22,8 @@ export {
   install,
   version,
   XuButton,
-  XuIcon
+  XuIcon,
+  XuNavigation
 }
 export default {
   install,
