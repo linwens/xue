@@ -43,6 +43,36 @@
     padding: 7px 15px;
   }
   
+  @include m(text) {
+    border-color: transparent;
+    background: transparent;
+    padding-left: 0;
+    padding-right: 0;
+    color: $--color-primary;
+    &:hover,
+    &:focus {
+      color: adjust-color($--color-primary, $alpha: -0.2);
+    }
+    &:active {
+      
+    }
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      color: $--color-black;
+    }
+    @include when(plain) {
+      &:hover,
+      &:focus {
+        color: $--color-primary;
+      }
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        color: $--color-black;
+      }
+    }
+  }
   @include m(default) {
     &:hover,
     &:focus {

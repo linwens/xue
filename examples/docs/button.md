@@ -120,6 +120,20 @@
   
 ```
 :::
+### 文字按钮
+<!-- {.md} -->
+
+<div class="demo-block">
+  <xu-button type="text">文字按钮</xu-button>
+  <xu-button type="text" disabled>文字按钮</xu-button>
+</div>
+
+::: demo
+```html
+  <xu-button type="text">文字按钮</xu-button>
+  <xu-button type="text" disabled>文字按钮</xu-button>
+```
+:::
 
 ### 图标按钮
 <!-- {.md} -->

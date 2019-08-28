@@ -24,7 +24,7 @@
       },
       size: {
         type: String,
-        default: 'default'
+        default: 'medium'
       },
       icon: {
         type: String,
