@@ -88,7 +88,7 @@ code, kbd, pre, samp {
 @include pos();
 @include wh(w, 400);
 @include wh(h, 400);
-@include fs(20);
+@include fs(30);
 
 // flex相关熟悉
 .s-fdc{

@@ -1,4 +1,4 @@
-import BezierEasing from "bezier-easing";
+import BezierEasing from "./bezier-easing";
 import easings from "./easings";
 import _ from "./utils";
 

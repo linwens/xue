@@ -1,4 +1,4 @@
-import scrollTo from "./scrollTo";
+import scrollTo from "./scrollto";
 import _ from "./utils";
 
 let bindings = []; // store binding data

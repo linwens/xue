@@ -2,3 +2,114 @@
 @import "icon.scss";
 @import "button.scss";
 @import "navigation.scss";
+@import "mixins/utils";
+
+@include boxModel(m, 20);
+@include boxModel(m, 50, t);
+@include boxModel(m, 20, b);
+@include boxModel(m, 20, l);
+@include boxModel(m, 20, r);
+@include boxModel(p, 20);
+@include boxModel(p, 30, t);
+@include boxModel(p, 30, b);
+@include boxModel(p, 20, l);
+@include boxModel(p, 20, r);
+@include display();
+@include pos();
+@include wh(w, 400);
+@include wh(h, 400);
+@include fs(20);
+
+// flex相关熟悉
+.s-fdc{
+  flex-direction: column;
+}
+.s-jcc {
+  justify-content: center;
+}
+.s-jcfs{
+  justify-content: flex-start;
+}
+.s-jcfe{
+  justify-content: flex-end;
+}
+.s-jcfs {
+  justify-content: flex-start;
+}
+.s-jcsa {
+  justify-content: space-around;
+}
+.s-jcsb {
+  justify-content: space-between;
+}
+.s-aic {
+  align-items: center;
+}
+// box
+.bs{
+  box-sizing: border-box;
+}
+// 浮动
+.fl-l {
+  float: left;
+}
+.fl-r {
+  float: right;
+}
+// 其他
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+.va-m {
+  vertical-align: middle;
+}
+.ta-c{
+  text-align: center;
+}
+.ta-l {
+  text-align: left;
+}
+.ta-r {
+  text-align: right;
+}
+// 字体
+.fwb {
+  font-weight: bold;
+}
+// 字体颜色
+.cl-black {
+  color: #000;
+}
+.cl-red {
+  color: #F56C6C!important;
+}
+.cl-green {
+  color: #67C23A!important;
+}
+.cl-grey-c {
+  color: #ccc;
+}
+.cl-grey-d8 {
+  color: #d8d8d8;
+}
+//边框
+.bd-gray {
+  border: 1px solid #d8d8d8;
+}
+// 背景色
+.bg-white {
+  background-color: #fff;
+}
+// 其他
+.ofh {
+  overflow: hidden;
+}
+.ofa-y {
+  overflow-y: auto;
+}
+.cp {
+  cursor: pointer;
+}

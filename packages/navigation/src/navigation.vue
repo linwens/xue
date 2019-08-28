@@ -1,46 +1,70 @@
 <template>
-  <div id="m-navibar">
+  <div class="xu-navigation" :class="{'is-right' : position === 'right', 'is-left' : position === 'left'}">
     <!-- 右侧导航栏组件 -->
     <div v-if="isShow">
       <div>
-        <xu-button @click="toggleBar" type="primary" icon="xu-icon-taobao" style="padding:7px 8px!important;"></xu-button>
-        <div class="m-anchorList df s-fdc s-aic s-jcc pl7 pr4" v-show="isShow">
-          <div class="u-item ta-c df s-jcsb s-aic cp" v-for="(item, index) in anchorList" :key="index" :class="{'s-hide':item.status===3}">
+        <xu-button @click="toggleBar" plain icon="xu-icon-right-double" style="padding:7px 8px!important;"></xu-button>
+        <div class="m-anchorList df s-fdc s-aic s-jcc pl7 pr4" v-show="isShow" :style="{width:width + 'px'}">
+          <div class="u-item ta-c df s-jcsb s-aic cp" v-for="(item, index) in anchorList" :key="index" :class="{'is-hide':item.status===3}">
             <span v-if="item.status===2" v-scroll-to="{
               el: '#'+item.idStr,
+              offset: offset,
               onStart: onStart,
+              duration: duration,
+              easing: easing
             }">{{item.title}}</span>
             <span v-else>{{item.title}}</span>
             <div @click="toggleShow(item)" class="show-ib w20 h20">
-              <i class="el-icon-diy1" v-if="item.status===1"></i><!-- 当前 -->
-              <i class="el-icon-diy2" v-else-if="item.status===2"></i><!-- 显示 -->
-              <i class="el-icon-diy3" v-else></i><!-- 隐藏 -->
+              <xu-icon class="xu-icon-anchor cl-primary fs12" v-if="item.status===1"></xu-icon>
+              <xu-icon class="xu-icon-eyes-open cl-primary fs12" v-else-if="item.status===2"></xu-icon>
+              <xu-icon class="xu-icon-eyes-close cl-primary fs12" v-else></xu-icon>
             </div>
           </div>
-          <span class="mt10">备注：使用中括号内快捷 键可快速操作定位功能</span>
+          <span class="mt10 fs12 pl10 pr10">备注：使用中括号内快捷 键可快速操作定位功能</span>
         </div>
       </div>
     </div>
     <div v-else>
-      <xu-button @click="toggleBar" type="primary" icon="xu-icon-google" style="padding:7px 8px!important;"></xu-button>
+      <xu-button @click="toggleBar" plain icon="xu-icon-left-double" style="padding:7px 8px!important;"></xu-button>
     </div>
   </div>
 </template>
 <script>
-  import XuButton from '~/button'
-  
+  import scrollTo from './directive'
+  import $scrollTo from "./scrollto";
+
   export default{
     name: 'XuNavigation',
-    components: {
-      XuButton
+    directives: {
+      'scroll-to': scrollTo
     },
     props:{
-      pageModules:{ //页面上存在的内容模块
+      pageModules: { //页面上存在的内容模块
         type:Object,
         default:function(){
           return {}
         }
       },
+      position: {
+        type: String,
+        default: 'right' 
+      },
+      width: {
+        type: Number,
+        default: 160
+      },
+      offset: {
+        type: Number,
+        default: 0
+      },
+      duration: {
+        type: Number,
+        default: 500
+      },
+      easing: {
+        type: String,
+        default: 'ease' 
+      }
     },
     data(){
       return {
@@ -50,13 +74,14 @@
     },
     watch:{
       pageModules:function(n,o){
-        // console.log('pageModules')
         this.createList();
       }
     },
     mounted(){
       //监听页面滚动
-      this.createList();
+      // this.createList();
+      this.$scrollTo = $scrollTo;
+
     },
     methods:{
       onStart(item){
@@ -72,31 +97,18 @@
       },
       //生成导航栏数据
       createList(){
-        const title = {
-          'baseInfo':'车辆信息',
-          'imageInfo':'照片信息',
-          'distribution':'配送信息',
-          'fullLog':'完整日志',
-          'keepRecord':'跟进记录',
-          'linkedOrder':'关联订单',
-          'payInfo':'支付信息',
-          'phoneBook':'电话簿',
-          'quoteTwo':'保单信息',
-          'quote':'报价信息',
-          'settlement':'结算信息',
-        };
         let newList = [],count=0;
         let keyRules = [ // 快捷键规则文案
           '[Shift+1]','[Shift+2]','[Shift+3]','[Shift+4]','[Shift+5]','[Shift+Q]','[Shift+W]','[Shift+E]','[Shift+R]','[Shift+T]',
           '[Alt+1]','[Alt+2]','[Alt+3]','[Alt+4]','[Alt+5]','[Alt+Q]','[Alt+W]','[Alt+E]','[Alt+R]','[Alt+T]',
         ];
-        // console.log(this.pageModules)
         for(let [key, value] of Object.entries(this.pageModules)){
           let idStr = value.$el.id;
+          let title = value.$el.title;
           if(value.$el.style.display!=="none"){
             newList.push({
               name:key,
-              title:title[key]+keyRules[count],
+              title:title+keyRules[count],
               idStr:idStr,
               status:2
             })
@@ -139,7 +151,10 @@
             for(let [index, elem] of codes.entries()){
               if(elem&&_that.anchorList[index]&&_that.anchorList[index].status===2){ // 有这个键的监听通过有这个内容模块
                 _that.$scrollTo('#'+_that.anchorList[index].idStr,100,{
-                  onStart:_that.onStart
+                  onStart: _that.onStart,
+                  offset: offset,
+                  duration: _that.duration,
+                  easing: _that.easing
                 }) //时间必须给出，不然有个诡异的bug
               }
             }
@@ -170,61 +185,3 @@
     }
   }
 </script>
-<style lang="scss">
-  #m-navibar{
-    position: fixed;
-    right: 0;
-    top: 20%;
-    .m-anchorList{
-      width:161px;
-      padding: 20px 0;
-      background:#F5FBFF;
-      border-radius:5px;
-      color: #2D353F;
-      box-shadow: -2px 2px 10px 0.1px rgba(0,0,0,0.25);
-      .u-item{
-        width: 90%;
-        height: 29px;
-        line-height: 29px;
-        border-bottom: 1px solid #D4E1EA;
-        >div{
-          line-height: 22px;
-          border-radius: 20px;
-          background: #fff;
-          box-shadow: 2px 1px 2px 0.1px rgba(0,0,0,0.25);
-        }
-      }
-      .el-icon-diy1{
-        &:before{
-          content:'';
-          display: inline-block;
-          width: 14px;
-          height: 11px;
-          background: url('./icon_position.png') no-repeat center;
-        }
-      }
-      .el-icon-diy2{
-        &:before{
-          content:'';
-          display: inline-block;
-          width: 14px;
-          height: 11px;
-          background: url('./icon_display.png') no-repeat center;
-        }
-      }
-      .el-icon-diy3{
-        &:before{
-          content:'';
-          display: inline-block;
-          width: 14px;
-          height: 12px;
-          background: url('./icon_hide.png') no-repeat center;
-        }
-      }
-    }
-    .s-hide{
-      color: #666;
-      background: #fff;
-    }
-  }
-</style>
