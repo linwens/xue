@@ -7,10 +7,10 @@
 <!-- {.md} -->
 
 ### 基础用法
-<div class="fs20 cl-red df">
-  <xu-icon class="xu-icon-taobao fs24" ref="basicUse" id="basicUse" title="基础用法"></xu-icon>
-  锚点一
-</div>
+
+<xu-button class="fs20 cl-red" ref="basicUse" id="basicUse" title="基础用法" type="text">
+  <xu-icon class="xu-icon-taobao fs20"></xu-icon>锚点一
+</xu-button> 
 <!-- {.md} -->
 
 pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动，内容块的显示隐藏等。
@@ -18,7 +18,7 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 
 <div class="demo-block">
   请查看右侧---->
-  <xu-navigation :pageModules.sync="pageModules" :duration="800" easing="ease-in-out" :width="200" :offset="-20"></xu-navigation>
+  <xu-navigation :page-modules.sync="pageModules" :duration="800" easing="ease-in-out" :width="200" :offset="-20"></xu-navigation>
 </div>
 
 :::demo
@@ -29,7 +29,7 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
       <xu-icon class="xu-icon-taobao fs-24" ref="width" id="width" title="设置样式"></xu-icon>
       <xu-icon class="xu-icon-taobao fs-24" ref="easeStyle" id="easeStyle" title="调整滚动效果"></xu-icon>
       <xu-icon class="xu-icon-taobao fs-24" ref="attribute" id="attribute" title="参数配置"></xu-icon>
-      <xu-navigation :pageModules.sync="pageModules"></xu-navigation>
+      <xu-navigation :page-modules.sync="pageModules"></xu-navigation>
     </div>
   <template>
   <script>
@@ -48,10 +48,10 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 :::
 
 ### 定位偏移
-<div class="fs20 cl-red df">
-  <xu-icon class="xu-icon-taobao fs24" ref="offset" id="offset" title="定位偏移"></xu-icon>
-  锚点二
-</div>
+
+<xu-button class="fs20 cl-red" ref="offset" id="offset" title="定位偏移" type="text">
+  <xu-icon class="xu-icon-taobao fs20"></xu-icon>锚点二
+</xu-button> 
 <!-- {.md} -->
 
 可以通过 `offset` 设置定位偏移。其中  `负值` 向上偏移，`正值` 向下偏移
@@ -60,7 +60,7 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 ```html
   <template>
     <div>
-      <xu-navigation :pageModules.sync="pageModules" :offset="20"></xu-navigation>
+      <xu-navigation :page-modules.sync="pageModules" :offset="20"></xu-navigation>
     </div>
   <template>
   <script>
@@ -79,10 +79,10 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 :::
 
 ### 设置样式
-<div class="fs20 cl-red df">
-  <xu-icon class="xu-icon-taobao fs24" ref="width" id="width" title="设置样式"></xu-icon>
-  锚点三
-</div>
+
+<xu-button class="fs20 cl-red" ref="width" id="width" title="设置样式" type="text">
+  <xu-icon class="xu-icon-taobao fs20"></xu-icon>锚点三
+</xu-button> 
 <!-- {.md} -->
 
 可以通过 `width` 设置导航栏宽度; 通过`position`设置定位
@@ -91,7 +91,7 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 ```html
   <template>
     <div>
-      <xu-navigation :pageModules.sync="pageModules" :width="200" position="left"></xu-navigation>
+      <xu-navigation :page-modules.sync="pageModules" :width="200" position="left"></xu-navigation>
     </div>
   <template>
   <script>
@@ -110,10 +110,10 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 :::
 
 ### 调整滚动效果
-<div class="fs20 cl-red df">
-  <xu-icon class="xu-icon-taobao fs24" ref="easeStyle" id="easeStyle" title="调整滚动效果"></xu-icon>
-  锚点四
-</div>
+
+<xu-button class="fs20 cl-red" ref="easeStyle" id="easeStyle" title="调整滚动效果" type="text">
+  <xu-icon class="xu-icon-taobao fs20"></xu-icon>锚点四
+</xu-button> 
 <!-- {.md} -->
 
 可以通过`duration`,`easing`两个属性分别控制过度时间，以及过度效果
@@ -122,7 +122,7 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 ```html
   <template>
     <div>
-      <xu-navigation :pageModules.sync="pageModules" :duration="1000" easing="linear"></xu-navigation>
+      <xu-navigation :page-modules.sync="pageModules" :duration="1000" easing="linear"></xu-navigation>
     </div>
   <template>
   <script>
@@ -141,10 +141,10 @@ pageModules规定了要用到导航栏的模块信息，用来控制scroll滑动
 :::
 
 ### 参数配置
-<div class="fs20 cl-red df">
-  <xu-icon class="xu-icon-taobao fs24" ref="attribute" id="attribute" title="参数配置"></xu-icon>
-  锚点五
-</div>
+
+<xu-button class="fs20 cl-red" ref="attribute" id="attribute" title="参数配置" type="text">
+  <xu-icon class="xu-icon-taobao fs20"></xu-icon>锚点五
+</xu-button> 
 
 <!-- {.md} -->
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |

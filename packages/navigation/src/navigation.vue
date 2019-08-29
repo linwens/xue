@@ -30,6 +30,8 @@
   </div>
 </template>
 <script>
+  import XuButton from '~/button'
+  import XuIcon from '~/icon'
   import scrollTo from './directive'
   import $scrollTo from "./scrollto";
 
@@ -37,6 +39,10 @@
     name: 'XuNavigation',
     directives: {
       'scroll-to': scrollTo
+    },
+    components: {
+      XuButton,
+      XuIcon
     },
     props:{
       pageModules: { //页面上存在的内容模块
