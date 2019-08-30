@@ -6,7 +6,6 @@ import Button from '~/button/src/button.vue'
 chai.use(sinonChai)
 
 describe('Button', () => {
-
   it('存在', () => {
     // eslint-disable-next-line no-unused-expressions
     expect(Button).to.exist
