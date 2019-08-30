@@ -1,34 +1,10 @@
 # xu-ui
-[![Build Status](https://www.travis-ci.org/linwens/xue.svg?branch=master)](https://www.travis-ci.org/linwens/xue) [![Coverage Status](https://coveralls.io/repos/github/linwens/xue/badge.svg?branch=master)](https://coveralls.io/github/linwens/xue?branch=master) ![npm](https://img.shields.io/npm/dt/xue) ![NPM](https://img.shields.io/npm/l/xue) ![npm](https://img.shields.io/npm/v/xue) ![GitHub issues](https://img.shields.io/github/issues/linwens/xue)
-## Project setup
-```
-npm install
-```
+[![Build Status](https://www.travis-ci.org/linwens/xue.svg?branch=master)](https://www.travis-ci.org/linwens/xue) [![Coverage Status](https://coveralls.io/repos/github/linwens/xue/badge.svg?branch=master)](https://coveralls.io/github/linwens/xue?branch=master) ![npm](https://img.shields.io/npm/dt/xue) ![GitHub issues](https://img.shields.io/github/issues/linwens/xue)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 查看文档
 
-### Compiles and minifies for production
-```
-npm run build
-```
+[文档](http://blog.eamonn.cn/vue-cards/#/start)
 
-### Run your tests
-```
-npm run test
-```
+### 特别说明
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+组件内容来源于过往项目，内容扩展中...
