@@ -199,8 +199,8 @@ Button 组件提供除了默认值以外的三种尺寸，可以在不同场景�
 
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
-| size     | 尺寸   | string  |   default,medium,small            |    —     |
-| type     | 类型   | string    |   primary,success,warning,danger,info |     —    |
-| plain     | 是否朴素按钮   | Boolean    | — | false   |
+| size      | 尺寸   | string  |   default, medium, small            |    —     |
+| type      | 类型   | string  |   text, primary, success, warning, danger, info |     —    |
+| plain     | 是否朴素按钮   | Boolean    | —   | false   |
 | disabled  | 是否禁用状态    | boolean   | —   | false   |
-| icon  | 图标，已有的图标库中的图标名 | string   |  —  |  —  |
+| icon      | 图标，已有的图标库中的图标名  | string   |  —  |  —  |

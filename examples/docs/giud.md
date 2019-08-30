@@ -4,24 +4,29 @@
 ----
 <!-- {.md} -->
 
-`XUE-UI` 是一款基于 `Vue.js 2.0` 的前端 UI 组件库，主要用于快速开发 PC 网站中后台产品
+`XU-UI` 是一款基于 `Vue.js 2.0` 的前端 UI 组件库，主要用于 PC 网站中后台产品的开发，目标定位是elementui等主流UI库的功能补充。
 
 ## 特性
 <!-- {.md} -->
 
-- 基于 `Vue` 开发的 UI 组件
-- 使用 npm + webpack + babel 的工作流，支持 ES2015
-- 提供友好的 API，可灵活的使用组件
+- 基于 `Vue` 的组件开发
+- 背靠 npm 生态圈
+- 项目发包基于 `travis` 集成，基于 `coveralls` 做测试覆盖率检测
 
-## 浏览器支持
+## 维护者
 <!-- {.md} -->
 
-- 现代浏览器和 IE9 及以上
-- [Electron](http://electron.atom.io/)
-- [NW.js](http://nwjs.io)
+- 本人
 
 
-## 贡献
+## 使用者
 <!-- {.md} -->
 
-如果你在使用 `VV-UI` 时遇到问题，或者有好的建议，欢迎给我们提 [Issue](https://github.com/VV-UI/VV-UI/issues) 或 [Pull Request](https://github.com/VV-UI/VV-UI/pulls)
+- 本人
+
+
+## 说明
+<!-- {.md} -->
+
+项目组件的内容源于参与过的项目; 个人项目, 切勿用于生产环境...  
+欢迎任何形式的意见与建议 [Issue](https://github.com/linwens/xue/issues) 或 [Pull Request](https://github.com/linwens/xue/pulls)

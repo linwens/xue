@@ -10,16 +10,17 @@
 直接通过<!-- {.md} -->设置类名为 `xu-icon-iconName` 来使用即可。例如：
 
 <div class="demo-block">
-  <xu-icon class="xu-icon-taobao fs-24"></xu-icon>
-  <xu-icon class="xu-icon-github fs-24"></xu-icon>
-  <xu-icon class="xu-icon-facebook fs-24"></xu-icon>
+  <xu-icon class="xu-icon-taobao fs20 cl-red"></xu-icon>
+  <xu-icon class="xu-icon-github fs20"></xu-icon>
+  <xu-icon class="xu-icon-facebook fs20"></xu-icon>
 </div>
 
 :::demo
 ```html
-<xu-icon class="xu-icon-taobao fs-24"></xu-icon>
-<xu-icon class="xu-icon-github fs-24"></xu-icon>
-<xu-icon class="xu-icon-facebook fs-24"></xu-icon>
+  // 图标大小及颜色可以通过样式调整
+  <xu-icon class="xu-icon-taobao fs20 cl-red"></xu-icon>
+  <xu-icon class="xu-icon-github fs20"></xu-icon>
+  <xu-icon class="xu-icon-facebook fs20"></xu-icon>
 
 ```
 :::
@@ -41,9 +42,6 @@
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
 |---------- |-------- |---------- |-------------  |-------- |
 | name     | 图标名称  | string  | -          |    -     |
-| color    | 图标颜色  | string  | -           |    -    |
-| size    | 图标大小  | number  | -           |    -    |
-| symbol    | 是否多色（开启将以`svg`标签方式引入图标）  | boolean  | `true`,`false`          |    `true`     |
 
 
 <style lang="scss">

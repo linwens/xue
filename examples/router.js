@@ -21,6 +21,11 @@ let addComponent = (router) => {
           r(require(`./pages/${route.name}.vue`)))
         return
       }
+      if (route.type === 'logs') {
+        route.component = r => require.ensure([], () =>
+          r(require(`../CHANGELOG.md`)))
+        return
+      }
       route.component = r => require.ensure([], () =>
         r(require(`./docs/${route.name}.md`)))
     }

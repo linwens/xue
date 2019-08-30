@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-    <!-- <mainHeader></mainHeader> -->
+    <mainHeader></mainHeader>
     <div class="container" v-if="!isIndex">
       <sideNav class="nav"></sideNav>
       <router-view class="view"></router-view>
     </div>
     <router-view class="page" v-else></router-view>
-    <mainFooter v-if="!isIndex"></mainFooter>
   </div>
 </template>
 
 <script>
   import mainHeader from './components/header.vue'
-  import mainFooter from './components/footer.vue'
   import sideNav from './components/side-nav.vue'
 
   export default {
@@ -36,8 +34,7 @@
     },
     components: {
       mainHeader,
-      sideNav,
-      mainFooter
+      sideNav
     }
   }
 </script>

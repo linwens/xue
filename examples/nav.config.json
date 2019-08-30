@@ -8,12 +8,7 @@
     {
       "name": "install",
       "path": "/install",
-      "desc": "安装"
-    },
-    {
-      "name": "start",
-      "path": "/start",
-      "desc": "快速开始"
+      "desc": "安装与使用"
     },
     {
       "name": "index",
@@ -23,7 +18,8 @@
     {
       "name": "logs",
       "path": "/logs",
-      "desc": "更新日志"
+      "desc": "更新日志",
+      "type": "logs"
     }
   ],
   "组件": [
