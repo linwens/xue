@@ -3,7 +3,7 @@
 
 ## 查看文档
 
-[文档](http://blog.eamonn.cn/vue-cards/#/start)
+[文档](https://linwens.github.io/xue/#/)
 
 ### 特别说明
 
