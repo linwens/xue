@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/linwens/xue/compare/v0.2.0...v0.2.1) (2019-08-30)
+
+
+### Bug Fixes
+
+* **navigation:** 单元测试文件报错 ([92220c7](https://github.com/linwens/xue/commit/92220c7))
+
 ## [0.2.0](https://github.com/linwens/xue/compare/v0.1.61...v0.2.0) (2019-08-30)
 
 
