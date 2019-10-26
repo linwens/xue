@@ -47,6 +47,11 @@
           "desc": "navigation",
           "name": "navigation",
           "path": "/navigation"
+        },
+        {
+          "desc": "dialog",
+          "name": "dialog",
+          "path": "/dialog"
         }
       ]
     }

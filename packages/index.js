@@ -1,11 +1,13 @@
 /* eslint-disable */
 // This file is auto gererated by build/build-entry.js
 import XuButton from './button'
+import XuDialog from './dialog'
 import XuIcon from './icon'
 import XuNavigation from './navigation'
-const version = '0.1.61'
+const version = '0.2.2'
 const components = [
   XuButton,
+  XuDialog,
   XuIcon,
   XuNavigation
 ]
@@ -22,6 +24,7 @@ export {
   install,
   version,
   XuButton,
+  XuDialog,
   XuIcon,
   XuNavigation
 }
