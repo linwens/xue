@@ -48,17 +48,17 @@
 将对话框插入的body元素下，当希望切换页面并且保留弹窗时，非常有用。注意，当前情况下不显示遮罩。
 
 <div class="demo-block">
-  <xu-button type='text' @click="dialogVisible = true">打开对话框</xu-button>
+  <xu-button type='text' @click="dialogVisible2 = true">打开对话框</xu-button>
   
   <xu-dialog
     title="插入到body"
-    :visible.sync="dialogVisible"
+    :visible.sync="dialogVisible2"
     width="30%"
     appendToBody>
     <span>这是一段信息</span>
     <span slot="footer" class="dialog-footer">
-      <xu-button @click="dialogVisible = false">取 消</xu-button>
-      <xu-button type="primary" @click="dialogVisible = false">确 定</xu-button>
+      <xu-button @click="dialogVisible2 = false">取 消</xu-button>
+      <xu-button type="primary" @click="dialogVisible2 = false">确 定</xu-button>
     </span>
   </xu-dialog>
 </div>
@@ -81,7 +81,8 @@
   export default{
     data(){
       return {
-        dialogVisible: false
+        dialogVisible: false,
+        dialogVisible2: false
       }
     },
     mounted(){
