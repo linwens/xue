@@ -53,7 +53,7 @@
   <xu-dialog
     title="插入到body"
     :visible.sync="dialogVisible2"
-    width="30%"
+    width="50%"
     appendToBody>
     <span>这是一段信息</span>
     <span slot="footer" class="dialog-footer">

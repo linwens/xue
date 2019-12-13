@@ -17,6 +17,28 @@
     padding: 10px;
   }
 
+  @include e(headerbtn) {
+    position: absolute;
+    top: $--dialog-padding-primary;
+    right: $--dialog-padding-primary;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: $--message-close-size;
+
+    .el-dialog__close {
+      color: $--color-info;
+    }
+
+    &:focus, &:hover {
+      .el-dialog__close {
+        color: $--color-primary;
+      }
+    }
+  }
+  
   @include e(body) {
     padding: 10px;
   }
