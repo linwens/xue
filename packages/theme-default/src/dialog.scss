@@ -7,14 +7,18 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
+  transform: translate(-50%, 0);
+  background: $--dialog-background-color;
+  border-radius: $--border-radius-small;
+  box-shadow: $--dialog-box-shadow;
+  box-sizing: border-box;
   z-index: 1001;
 
   @include e(header) {
-    border-radius: 5px;
-    border-bottom: 1px solid #eee;
-    padding: 10px;
+    position: relative;
+    padding: $--dialog-padding-primary;
+    padding-bottom: 10px;
+    // border-bottom: 1px solid #eee;
   }
 
   @include e(headerbtn) {
@@ -28,23 +32,29 @@
     cursor: pointer;
     font-size: $--message-close-size;
 
-    .el-dialog__close {
+    .xu-dialog__close {
       color: $--color-info;
     }
 
     &:focus, &:hover {
-      .el-dialog__close {
+      .xu-dialog__close {
         color: $--color-primary;
       }
     }
   }
   
   @include e(body) {
-    padding: 10px;
+    padding: 30px 20px;
+    color: $--color-text-regular;
+    font-size: $--dialog-content-font-size;
+    word-break: break-all;
   }
 
   @include e(footer) {
-    padding: 10px;
+    padding: $--dialog-padding-primary;
+    padding-top: 10px;
+    text-align: right;
+    box-sizing: border-box;
   }
 
 }

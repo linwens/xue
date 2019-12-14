@@ -1,38 +1,80 @@
 <template>
   <div>
-    <div 
-      v-if="visible"
-      class="xu-dialog"
-      :style="{width: width}">
-      <div class="xu-dialog__header">
-        <slot name="header">
-          <span>{{title}}</span>
-        </slot>
-        <xu-button 
-          type="text"
-          @click="handleClose"
-          class="xu-dialog_headerbtn"
-          v-if="showClose">x</xu-button>
-      </div>
-      <div class="xu-dialog__body">
-        <slot></slot>
-      </div>
-      <div class="xu-dialog__footer">
-        <slot name="footer"></slot>
-      </div>
+    <div
+      v-drag="drag"
+      v-if="visible">
+        <div
+          class="xu-dialog"
+          :style="style">
+          <div class="xu-dialog__header">
+            <slot name="header">
+              <span>{{title}}</span>
+            </slot>
+            <div
+              @click="handleClose"
+              v-if="showClose"
+              class="xu-dialog__headerbtn">
+              <xu-icon class="xu-icon-close fs12 xu-dialog__close"></xu-icon>
+            </div>
+          </div>
+          <div class="xu-dialog__body">
+            <slot></slot>
+          </div>
+          <div class="xu-dialog__footer">
+            <slot name="footer"></slot>
+          </div>
+        </div>
     </div>
-    <div v-if="visible && mask && !appendToBody" class="u-mask"></div>
+    <div
+      @click.self="handleWrapperClick"
+      v-if="visible && mask && !appendToBody"
+      class="u-mask"></div>
   </div>
 </template>
 
 <script>
   import XuButton from '~/button'
+  import XuIcon from '~/icon'
 
   export default {
     name: 'XuDialog',
+
     components:{
-      XuButton
+      XuButton,
+      XuIcon
     },
+
+    directives:{
+      drag: { // 拖动指令
+        bind (el, binding, vnode, oldVnode) {
+          // 如果不设置拖放，return
+          if (!binding.value) return;
+          const dialogHeaderEl = el.querySelector('.xu-dialog__header')
+          const dragDom = el.querySelector('.xu-dialog')
+          // dialogHeaderEl.style.cursor = 'move';
+          dialogHeaderEl.style.cssText += ';cursor:move;'
+          dragDom.style.cssText += ';margin-top:0px;' // elementui 会自动加margin-top
+          dialogHeaderEl.onmousedown = (e) => {
+            // 鼠标按下，计算当前元素距离可视区的距离
+            const disX = e.clientX - dragDom.offsetLeft
+            const disY = e.clientY - dragDom.offsetTop
+            document.onmousemove = function (e) {
+              // 通过事件委托，计算移动的距离
+              let left = e.clientX - disX
+              let top = e.clientY - disY
+              dragDom.style.left = left + 'px'
+              dragDom.style.top = top + 'px'
+            }
+
+            document.onmouseup = function (e) {
+              document.onmousemove = null
+              document.onmouseup = null
+            }
+          }
+        }
+      }
+    },
+
     props: {
       title: {
         type: String,
@@ -62,12 +104,28 @@
         type: Boolean,
         default: true
       },
+      drag: {
+        type: Boolean,
+        default: false
+      },
       top: {
         type: String,
-        default: '15vh'
+        default: '30%'
       },
       beforeClose: Function,
     },
+
+    computed: {
+      style() {
+        let style = {};
+        style.top = this.top;
+        if (this.width) {
+          style.width = this.width;
+        }
+        return style;
+      }
+    },
+
     data(){
       return {
         closed: false
@@ -83,6 +141,14 @@
       }
     },
     methods: {
+      handleDrag() {
+        if (!this.drag) return;
+
+      },
+      handleWrapperClick() {
+        if (!this.closeOnClickModal) return;
+        this.handleClose();
+      },
       handleClose() {
         if (typeof this.beforeClose === 'function') {
           this.beforeClose(this.hide);
