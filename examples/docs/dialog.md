@@ -52,6 +52,7 @@
     title="提示"
     width="30%"
     top="10%"
+    :before-close="beforeClose"
     :visible.sync="dialogVisible2">
     <span slot="header">
       <div>提示</div>
@@ -70,7 +71,7 @@
   <xu-dialog 
     title="提示"
     width="30%"
-    top="5vh"
+    top="10%"
     :visible.sync="dialogVisible2">
     <span slot="header">
       <div>提示</div>
@@ -167,10 +168,12 @@
 |---------- |-------- |---------- |-------------  |-------- |
 | title     | 标题名称  | string  | -          |    -     |
 | width     | 设置Dialog宽度  | string | -          | 50% |
+| center      | dialog内容居中展示  | boolean | true/false | true |
 | mask      | 是否显示遮罩层  | boolean | true/false | true |
 | closeOnClickModal | 通过点击遮罩层关闭弹窗 | boolean | true/false | true |
 | top       | 设置Dialog距离顶部的距离  | string | - | 30% |
 | show-close | 显示关闭按钮 | boolean | true/false | true |
+| before-close | 关闭前的回调，会暂停 Dialog 的关闭 | function(done)，done 用于关闭 Dialog | - | - |
 | drag | 弹窗是否可拖放 | boolean | true/false | false |
 | appendToBody | Dialog 自身是否插入至 body 元素上 | boolean | true/false | false |
 
@@ -186,6 +189,12 @@
     },
     mounted(){
      
+    },
+    methods: {
+      beforeClose(done){
+        console.log("确定要关闭吗")
+        done()
+      }
     }
   }
 </script>

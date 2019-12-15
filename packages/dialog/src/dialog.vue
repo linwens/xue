@@ -4,7 +4,7 @@
       v-drag="drag"
       v-if="visible">
         <div
-          class="xu-dialog"
+          :class="['xu-dialog', {'xu-dialog--center': center}, customClass]"
           :style="style">
           <div class="xu-dialog__header">
             <slot name="header">
@@ -112,6 +112,14 @@
         type: String,
         default: '30%'
       },
+      center: {
+        type: Boolean,
+        default: false
+      },
+      customClass: {
+        type: String,
+        default: ''
+      },
       beforeClose: Function,
     },
 
@@ -163,10 +171,22 @@
           this.closed = true;
         }
       },
+      afterEnter() {
+        this.$emit('opened');
+      },
+      afterLeave() {
+        this.$emit('closed');
+      }
     },
     destroyed(){
-      if (this.appendToBody && this.$el && this.$el.parentNode) {
-        this.$el.parentNode.removeChild(this.$el);
+      // if (this.appendToBody && this.$el && this.$el.parentNode) {
+      //   this.$el.parentNode.removeChild(this.$el);
+      // }
+
+      if (this.$el && this.$el.parentNode) {
+        if (!this.appendToBody) { // 如果是插到body里的，页面切换的时候不销毁
+          this.$el.parentNode.removeChild(this.$el);
+        }
       }
     }
   };
