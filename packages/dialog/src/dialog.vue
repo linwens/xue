@@ -1,5 +1,9 @@
 <template>
   <div>
+<transition
+    name="dialog-fade"
+    @after-enter="afterEnter"
+    @after-leave="afterLeave">
     <div
       v-drag="drag"
       v-if="visible">
@@ -25,6 +29,7 @@
           </div>
         </div>
     </div>
+</transition>
     <div
       @click.self="handleWrapperClick"
       v-if="visible && mask && !appendToBody"
@@ -142,9 +147,13 @@
     watch: {
       visible(val) {
         if (val) {
+          this.closed = false;
+          this.$emit('open');
           if (this.appendToBody) { // 添加到body下面
             document.body.appendChild(this.$el)
           }
+        } else {
+          if (!this.closed) this.$emit('close');
         }
       }
     },

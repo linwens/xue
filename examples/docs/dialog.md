@@ -53,6 +53,10 @@
     width="30%"
     top="10%"
     :before-close="beforeClose"
+    @open="openHandle"
+    @close="closeHandle"
+    @opened="openedHandle"
+    @closed="closedHandle"
     :visible.sync="dialogVisible2">
     <span slot="header">
       <div>提示</div>
@@ -136,7 +140,7 @@
   <xu-dialog
     title="插入到body"
     :visible.sync="dialogVisible4"
-    appendToBody>
+    append-to-body>
     <span>这是一段信息</span>
     <span slot="footer" class="dialog-footer">
       <xu-button @click="dialogVisible4 = false">取 消</xu-button>
@@ -152,7 +156,7 @@
     title="插入到body"
     :visible.sync="dialogVisible4"
     width="50%"
-    appendToBody>
+    append-to-body>
     <span>这是一段信息</span>
     <span slot="footer" class="dialog-footer">
       <xu-button @click="dialogVisible4 = false">取 消</xu-button>
@@ -177,6 +181,14 @@
 | drag | 弹窗是否可拖放 | boolean | true/false | false |
 | appendToBody | Dialog 自身是否插入至 body 元素上 | boolean | true/false | false |
 
+## Event
+<!-- {.md} -->
+| 事件名称      | 说明    | 回调参数 |
+|---------- |-------- |---------- |
+| open | Dialog 打开的回调  |  -     |
+| close | Dialog 关闭的回调  |  -     |
+
+
 <script>
   export default{
     data(){
@@ -194,6 +206,18 @@
       beforeClose(done){
         console.log("确定要关闭吗")
         done()
+      },
+      openHandle(){
+        console.log("打开了弹窗")
+      },
+      closeHandle(){
+        console.log("关闭了弹窗")
+      },
+      openedHandle(){
+        console.log("打开后")
+      },
+      closedHandle(){
+        console.log("关闭后")
       }
     }
   }
