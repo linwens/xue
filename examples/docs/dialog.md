@@ -166,6 +166,55 @@
 ```
 :::
 
+### 事件
+<!-- {.md} -->
+我们可以在dialog打开和关闭的不同时间点上设置一些处理函数，以满足需求
+
+<div class="demo-block">
+  <xu-button type='text' @click="dialogVisible5 = true">打开对话框</xu-button>
+  <xu-dialog 
+    title="提示"
+    :before-close="beforeClose"
+    @open="openHandle"
+    @close="closeHandle"
+    @opened="openedHandle"
+    @closed="closedHandle"
+    :visible.sync="dialogVisible5">
+    <span slot="header">
+      <div>提示</div>
+    </span>
+    <span>这是一段信息</span>
+    <span slot="footer" class="dialog-footer">
+      <xu-button @click="dialogVisible5 = false">取 消</xu-button>
+      <xu-button type="primary" @click="dialogVisible5 = false">确 定</xu-button>
+    </span>
+  </xu-dialog>
+</div>
+
+:::demo
+```html
+  <xu-button type='text' @click="dialogVisible5 = true">打开对话框</xu-button>
+  <xu-dialog 
+    title="提示"
+    :before-close="beforeClose"
+    @open="openHandle"
+    @close="closeHandle"
+    @opened="openedHandle"
+    @closed="closedHandle"
+    :visible.sync="dialogVisible5">
+    <span slot="header">
+      <div>提示</div>
+    </span>
+    <span>这是一段信息</span>
+    <span slot="footer" class="dialog-footer">
+      <xu-button @click="dialogVisible5 = false">取 消</xu-button>
+      <xu-button type="primary" @click="dialogVisible5 = false">确 定</xu-button>
+    </span>
+  </xu-dialog>
+```
+
+:::
+
 ## Attributes
 <!-- {.md} -->
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |
@@ -181,12 +230,22 @@
 | drag | 弹窗是否可拖放 | boolean | true/false | false |
 | appendToBody | Dialog 自身是否插入至 body 元素上 | boolean | true/false | false |
 
+
+## Slot
+| name | 说明 |
+|------|--------|
+| — | Dialog 的内容 |
+| header | Dialog 标题区的内容 |
+| footer | Dialog 按钮操作区的内容 |
+
 ## Event
 <!-- {.md} -->
 | 事件名称      | 说明    | 回调参数 |
 |---------- |-------- |---------- |
 | open | Dialog 打开的回调  |  -     |
 | close | Dialog 关闭的回调  |  -     |
+| opened | Dialog 打开动画结束时的回调 | - |
+| closed | Dialog 关闭动画结束时的回调 | - |
 
 
 <script>
@@ -196,7 +255,8 @@
         dialogVisible: false,
         dialogVisible2: false,
         dialogVisible3: false,
-        dialogVisible4: false
+        dialogVisible4: false,
+        dialogVisible5: false
       }
     },
     mounted(){
@@ -204,20 +264,20 @@
     },
     methods: {
       beforeClose(done){
-        console.log("确定要关闭吗")
+        alert("确定要关闭dialog吗")
         done()
       },
       openHandle(){
-        console.log("打开了弹窗")
+        alert("打开了dialog")
       },
       closeHandle(){
-        console.log("关闭了弹窗")
+        alert("关闭了dialog")
       },
       openedHandle(){
-        console.log("打开后")
+        alert("dialog打开后")
       },
       closedHandle(){
-        console.log("关闭后")
+        alert("dialog关闭后")
       }
     }
   }

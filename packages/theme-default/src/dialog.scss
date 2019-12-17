@@ -15,7 +15,7 @@
   z-index: 1001;
 
   @include e(wrapper) {
-    position: fixed;
+    // position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -87,10 +87,23 @@
 
 
 .dialog-fade-enter-active {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
   animation: dialog-fade-in .3s;
 }
 
 .dialog-fade-leave-active {
+  //加上定位，是为了动画初始化的时候元素有尺寸，避免动画错乱
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
   animation: dialog-fade-out .3s;
 }
 
