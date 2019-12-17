@@ -1,35 +1,36 @@
 <template>
   <div>
-<transition
-    name="dialog-fade"
-    @after-enter="afterEnter"
-    @after-leave="afterLeave">
-    <div
-      v-drag="drag"
-      v-if="visible">
-        <div
-          :class="['xu-dialog', {'xu-dialog--center': center}, customClass]"
-          :style="style">
-          <div class="xu-dialog__header">
-            <slot name="header">
-              <span>{{title}}</span>
-            </slot>
-            <div
-              @click="handleClose"
-              v-if="showClose"
-              class="xu-dialog__headerbtn">
-              <xu-icon class="xu-icon-close fs12 xu-dialog__close"></xu-icon>
+    <transition
+      name="dialog-fade"
+      @after-enter="afterEnter"
+      @after-leave="afterLeave">
+      <div
+        class="xu-dialog__wrapper"
+        v-drag="drag"
+        v-if="visible">
+          <div
+            :class="['xu-dialog', {'xu-dialog--center': center}, customClass]"
+            :style="style">
+            <div class="xu-dialog__header">
+              <slot name="header">
+                <span>{{title}}</span>
+              </slot>
+              <div
+                @click="handleClose"
+                v-if="showClose"
+                class="xu-dialog__headerbtn">
+                <xu-icon class="xu-icon-close fs12 xu-dialog__close"></xu-icon>
+              </div>
+            </div>
+            <div class="xu-dialog__body">
+              <slot></slot>
+            </div>
+            <div class="xu-dialog__footer">
+              <slot name="footer"></slot>
             </div>
           </div>
-          <div class="xu-dialog__body">
-            <slot></slot>
-          </div>
-          <div class="xu-dialog__footer">
-            <slot name="footer"></slot>
-          </div>
-        </div>
-    </div>
-</transition>
+      </div>
+    </transition>
     <div
       @click.self="handleWrapperClick"
       v-if="visible && mask && !appendToBody"
@@ -53,7 +54,7 @@
       drag: { // 拖动指令
         bind (el, binding, vnode, oldVnode) {
           // 如果不设置拖放，return
-          if (!binding.value) return;
+          if (!binding.value) return
           const dialogHeaderEl = el.querySelector('.xu-dialog__header')
           const dragDom = el.querySelector('.xu-dialog')
           // dialogHeaderEl.style.cursor = 'move';
