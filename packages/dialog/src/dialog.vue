@@ -158,6 +158,7 @@ export default {
       closed: false
     }
   },
+
   watch: {
     visible (val) {
       if (val) {
@@ -171,6 +172,7 @@ export default {
       }
     }
   },
+
   methods: {
     doCancel () {
       if (typeof this.cancel === 'function') {
@@ -216,6 +218,7 @@ export default {
       this.$emit('closed')
     }
   },
+
   destroyed () {
     if (this.$el && this.$el.parentNode) {
       if (!this.appendToBody) { // 如果是插到body里的，页面切换的时候不销毁
