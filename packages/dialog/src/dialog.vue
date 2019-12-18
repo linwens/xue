@@ -217,10 +217,6 @@ export default {
     }
   },
   destroyed () {
-    // if (this.appendToBody && this.$el && this.$el.parentNode) {
-    //   this.$el.parentNode.removeChild(this.$el);
-    // }
-
     if (this.$el && this.$el.parentNode) {
       if (!this.appendToBody) { // 如果是插到body里的，页面切换的时候不销毁
         this.$el.parentNode.removeChild(this.$el)
