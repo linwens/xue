@@ -38,6 +38,15 @@
       <xu-button type="primary" @click="dialogVisible = false">确 定</xu-button>
     </span>
   </xu-dialog>
+  <script>
+  export default {
+    data() {
+      return {
+        dialogVisible: false,
+      };
+    }
+  }
+  </script>
 
 ```
 :::
@@ -86,6 +95,15 @@
       <xu-button type="primary" @click="dialogVisible2 = false">确 定</xu-button>
     </span>
   </xu-dialog>
+  <script>
+  export default {
+    data() {
+      return {
+        dialogVisible2: false,
+      };
+    }
+  }
+  </script>
 ```
 
 :::
@@ -126,13 +144,22 @@
       <xu-button type="primary" @click="dialogVisible3 = false">确 定</xu-button>
     </span>
   </xu-dialog>
+  <script>
+  export default {
+    data() {
+      return {
+        dialogVisible3: false,
+      };
+    }
+  }
+  </script>
 ```
 
 :::
 
 ### 页面间停留
 <!-- {.md} -->
-将对话框插入的body元素下，当希望切换页面并且保留弹窗时，非常有用。注意，当前情况下不显示遮罩。
+将对话框插入的body元素下，当希望切换页面并且保留弹窗时，非常有用。注意，当前情况下不显示遮罩，而且请勿自定义footer，如需要绑定点击事件请通过 `confirm` 和 `cancel` 属性
 
 <div class="demo-block">
   <xu-button type='text' @click="dialogVisible4 = true">打开对话框</xu-button>
@@ -140,12 +167,10 @@
   <xu-dialog
     title="插入到body"
     :visible.sync="dialogVisible4"
+    :confirm="handleConfirm"
+    :cancel="handleCancel"
     append-to-body>
     <span>这是一段信息</span>
-    <span slot="footer" class="dialog-footer">
-      <xu-button @click="dialogVisible4 = false">取 消</xu-button>
-      <xu-button type="primary" @click="dialogVisible4 = false">确 定</xu-button>
-    </span>
   </xu-dialog>
 </div>
 
@@ -155,14 +180,30 @@
   <xu-dialog
     title="插入到body"
     :visible.sync="dialogVisible4"
-    width="50%"
+    :confirm="handleConfirm"
+    :cancel="handleCancel"
     append-to-body>
     <span>这是一段信息</span>
-    <span slot="footer" class="dialog-footer">
-      <xu-button @click="dialogVisible4 = false">取 消</xu-button>
-      <xu-button type="primary" @click="dialogVisible4 = false">确 定</xu-button>
-    </span>
   </xu-dialog>
+  <script>
+  export default {
+    data() {
+      return {
+        dialogVisible4: false,
+      };
+    },
+    methods: {
+      handleConfirm(done){
+        console.log('wow handleConfirm')
+        done();
+      },
+      handleCancel(done){
+        console.log('wow handleCancel')
+        done();
+      }
+    }
+  }
+  </script>
 ```
 :::
 
@@ -211,6 +252,33 @@
       <xu-button type="primary" @click="dialogVisible5 = false">确 定</xu-button>
     </span>
   </xu-dialog>
+  <script>
+  export default {
+    data() {
+      return {
+        dialogVisible5: false,
+      };
+    },
+    methods: {
+      beforeClose(done){
+        alert("确定要关闭dialog吗")
+        done()
+      },
+      openHandle(){
+        alert("打开了dialog")
+      },
+      closeHandle(){
+        alert("关闭了dialog")
+      },
+      openedHandle(){
+        alert("dialog打开后")
+      },
+      closedHandle(){
+        alert("dialog关闭后")
+      }
+    }
+  }
+  </script>
 ```
 
 :::
@@ -226,9 +294,11 @@
 | closeOnClickModal | 通过点击遮罩层关闭弹窗 | boolean | true/false | true |
 | top       | 设置Dialog距离顶部的距离  | string | - | 30% |
 | show-close | 显示关闭按钮 | boolean | true/false | true |
-| before-close | 关闭前的回调，会暂停 Dialog 的关闭 | function(done)，done 用于关闭 Dialog | - | - |
 | drag | 弹窗是否可拖放 | boolean | true/false | false |
 | appendToBody | Dialog 自身是否插入至 body 元素上 | boolean | true/false | false |
+| before-close | 关闭前的回调，会暂停 Dialog 的关闭 | function(done)，done 用于关闭 Dialog | - | - |
+| confirm | dialog默认的确认按钮的回调 | function(done)，done 用于关闭 Dialog | - | - |
+| cancel | dialog默认的取消按钮的回调 | function(done)，done 用于关闭 Dialog | - | - |
 
 
 ## Slot
@@ -278,6 +348,14 @@
       },
       closedHandle(){
         alert("dialog关闭后")
+      },
+      handleConfirm(done){
+        console.log('wow handleConfirm')
+        done();
+      },
+      handleCancel(done){
+        console.log('wow handleCancel')
+        done();
       }
     }
   }
