@@ -61,7 +61,7 @@
     "sass-loader": "^7.1.0",
     "sinon": "^7.4.1",
     "sinon-chai": "^3.3.0",
-    "standard-version": "^7.0.0",
+    "standard-version": "^8.0.1",
     "uppercamelcase": "^3.0.0",
     "vue-loader": "^15.7.1",
     "vue-markdown-loader": "^2.4.1",
